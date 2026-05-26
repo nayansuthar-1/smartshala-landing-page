@@ -164,10 +164,10 @@ select {
   grid-template-columns: auto 1fr auto;
   gap: 28px;
   align-items: center;
-  width: 100%;
+  width: min(calc(100% - 32px), calc(var(--max) + 160px));
   max-width: none;
-  margin: 0;
-  padding: 18px max(20px, calc((100vw - var(--max)) / 2 + 20px));
+  margin: 0 auto;
+  padding: 18px 28px;
   backdrop-filter: blur(18px);
 }
 
@@ -177,8 +177,9 @@ select {
   z-index: -1;
   content: "";
   background: rgba(255, 255, 255, 0.72);
-  border-block: 1px solid rgba(255, 255, 255, 0.76);
-  box-shadow: 0 10px 30px rgba(6, 26, 64, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(6, 26, 64, 0.08);
 }
 
 .brand,
