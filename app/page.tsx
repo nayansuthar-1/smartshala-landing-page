@@ -534,15 +534,26 @@ export default function Home() {
         </section>
 
         <section className="faq section" id="faq">
-          <div className="section-copy reveal">
+          <div className="faq-aside reveal">
             <span className="section-kicker">FAQ</span>
             <h2>Questions principals usually ask first.</h2>
+            <p>
+              Clear answers before a walkthrough. SmartShala is built for
+              daily school operations, role-wise access and parent-ready
+              communication.
+            </p>
+            <div className="faq-support">
+              <span>Need a deeper answer?</span>
+              <a href="#demo">Book a walkthrough</a>
+            </div>
           </div>
           <div className="faq-grid">
-            {faqs.map((faq) => (
-              <details className="faq-item reveal" key={faq.q}>
+            {faqs.map((faq, index) => (
+              <details className="faq-item reveal" key={faq.q} open={index === 0}>
                 <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
+                <div className="faq-item__body">
+                  <p>{faq.a}</p>
+                </div>
               </details>
             ))}
           </div>
