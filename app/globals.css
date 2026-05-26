@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Mukta:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap");
 
 :root {
   color-scheme: light;
@@ -20,8 +20,21 @@
   --shadow-soft: 0 14px 42px rgba(6, 26, 64, 0.12);
   --radius: 8px;
   --max: 1180px;
-  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-devanagari: "Hind", "Mukta", "Noto Sans Devanagari", var(--font-primary);
+  --font-display: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-primary: var(--font-body);
+  --font-devanagari: "Noto Sans Devanagari", var(--font-body);
+  --type-h1: 24px;
+  --leading-h1: 32px;
+  --type-h2: 20px;
+  --leading-h2: 28px;
+  --type-h3: 16px;
+  --leading-h3: 24px;
+  --type-body: 14px;
+  --leading-body: 22px;
+  --type-caption: 12px;
+  --leading-caption: 16px;
 }
 
 * {
@@ -39,7 +52,10 @@ body {
   background:
     linear-gradient(180deg, #edf7ff 0%, #f7fbff 22%, #ffffff 58%, #eef7ff 100%);
   font-family: var(--font-primary);
+  font-size: var(--type-body);
+  font-weight: 400;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
@@ -62,6 +78,42 @@ strong,
 b,
 small {
   font-family: var(--font-primary);
+}
+
+h1 {
+  font-size: var(--type-h1);
+  font-weight: 700;
+  line-height: var(--leading-h1);
+}
+
+h2 {
+  font-size: var(--type-h2);
+  font-weight: 600;
+  line-height: var(--leading-h2);
+}
+
+h3,
+h4 {
+  font-size: var(--type-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
+}
+
+p {
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+small {
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 body::before {
@@ -134,11 +186,12 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .brand {
-  font-size: 20px;
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
 }
 
 .logo {
@@ -183,8 +236,9 @@ select {
   justify-content: center;
   gap: 18px;
   color: var(--ink-soft);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--type-body);
+  font-weight: 600;
+  line-height: var(--leading-body);
 }
 
 .site-nav nav a,
@@ -204,7 +258,9 @@ select {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font-weight: 700;
+  font-size: var(--type-body);
+  font-weight: 600;
+  line-height: var(--leading-body);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -244,8 +300,9 @@ select {
   align-items: center;
   gap: 9px;
   color: var(--blue-800);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -265,15 +322,12 @@ select {
   box-shadow: 0 0 0 6px rgba(36, 180, 126, 0.14);
 }
 
-.hero-title,
-.section-copy h2,
-.demo-copy h2,
-.india-panel h2 {
+.hero-title {
   margin: 20px 0 0;
   color: var(--ink);
   font-weight: 700;
-  font-size: clamp(44px, 6vw, 82px);
-  line-height: 1.12;
+  font-size: var(--type-h1);
+  line-height: var(--leading-h1);
   letter-spacing: 0;
 }
 
@@ -285,8 +339,8 @@ select {
   margin: 24px 0 0;
   color: var(--ink-soft);
   font-weight: 400;
-  font-size: clamp(17px, 2vw, 20px);
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
 }
 
 .hero-actions {
@@ -328,8 +382,9 @@ select {
   background: rgba(255, 255, 255, 0.68);
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 13px;
+  font-size: var(--type-caption);
   font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .hero-visual {
@@ -385,7 +440,8 @@ select {
   color: #9fb4ce;
   background: #111f3c;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: var(--type-caption);
+  line-height: var(--leading-caption);
 }
 
 .dashboard {
@@ -407,7 +463,8 @@ select {
 
 .dash-brand {
   margin-bottom: 16px;
-  font-size: 13px;
+  font-size: var(--type-caption);
+  line-height: var(--leading-caption);
 }
 
 .dash-brand .logo {
@@ -419,8 +476,9 @@ select {
   padding: 10px 12px;
   color: #9fb4ce;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: var(--type-caption);
   font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .dashboard aside span.active {
@@ -441,15 +499,18 @@ select {
 
 .dash-top small {
   color: var(--blue-600);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
   letter-spacing: 0.12em;
 }
 
 .dash-top h3 {
   margin: 5px 0 0;
   color: var(--blue-950);
-  font-size: 26px;
+  font-size: var(--type-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
 }
 
 .dash-top button {
@@ -458,7 +519,7 @@ select {
   background: rgba(36, 180, 126, 0.14);
   border: 1px solid rgba(36, 180, 126, 0.25);
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .metric-grid {
@@ -481,15 +542,17 @@ select {
 
 .metric span {
   color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .metric strong {
   color: var(--blue-950);
-  font-size: 25px;
+  font-size: var(--type-h1);
+  line-height: var(--leading-h1);
 }
 
 .metric small {
@@ -526,8 +589,9 @@ select {
 
 .activity-head span {
   color: var(--green);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .activity-row {
@@ -539,15 +603,17 @@ select {
 .activity-row b {
   display: block;
   color: var(--ink);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--type-body);
+  font-weight: 600;
+  line-height: var(--leading-body);
 }
 
 .activity-row small {
   display: block;
   margin-top: 3px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--type-caption);
+  line-height: var(--leading-caption);
 }
 
 .activity-row > span {
@@ -555,8 +621,9 @@ select {
   color: var(--blue-800);
   background: rgba(33, 136, 255, 0.1);
   border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .avatar {
@@ -567,8 +634,9 @@ select {
   color: white;
   background: linear-gradient(135deg, var(--blue-600), var(--cyan));
   border-radius: 8px;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .phone {
@@ -616,13 +684,16 @@ select {
 .phone-status {
   justify-content: space-between;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--type-caption);
   font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .phone h4 {
   margin: 18px 0 12px;
-  font-size: 24px;
+  font-size: var(--type-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
 }
 
 .attendance-summary {
@@ -635,7 +706,8 @@ select {
   text-align: center;
   background: rgba(33, 136, 255, 0.09);
   border-radius: 8px;
-  font-size: 12px;
+  font-size: var(--type-caption);
+  line-height: var(--leading-caption);
 }
 
 .student-row {
@@ -646,8 +718,9 @@ select {
   background: white;
   border: 1px solid var(--line);
   border-radius: 8px;
-  font-size: 13px;
+  font-size: var(--type-body);
   font-weight: 500;
+  line-height: var(--leading-body);
 }
 
 .student-row div {
@@ -662,8 +735,9 @@ select {
   background: #edf4fb;
   border: 0;
   border-radius: 7px;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .student-row button.selected {
@@ -685,8 +759,9 @@ select {
   margin-top: 14px;
   color: var(--green);
   text-align: center;
-  font-size: 10px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -715,8 +790,8 @@ select {
 .proof-item strong {
   display: block;
   color: var(--blue-950);
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1;
+  font-size: var(--type-h1);
+  line-height: var(--leading-h1);
 }
 
 .proof-item span {
@@ -724,6 +799,8 @@ select {
   margin-top: 8px;
   color: var(--muted);
   font-weight: 400;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
 }
 
 .section-copy {
@@ -733,8 +810,10 @@ select {
 .section-copy h2,
 .demo-copy h2,
 .india-panel h2 {
-  font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.02;
+  color: var(--ink);
+  font-size: var(--type-h2);
+  font-weight: 600;
+  line-height: var(--leading-h2);
 }
 
 .vision,
@@ -774,7 +853,9 @@ select {
 
 .principle > span {
   color: var(--blue-600);
-  font-weight: 700;
+  font-size: var(--type-body);
+  font-weight: 600;
+  line-height: var(--leading-body);
 }
 
 .principle h3,
@@ -782,6 +863,9 @@ select {
 .timeline-row h3 {
   margin: 0;
   color: var(--blue-950);
+  font-size: var(--type-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
 }
 
 .principle p,
@@ -791,7 +875,9 @@ select {
 .signal span {
   margin: 8px 0 0;
   color: var(--ink-soft);
-  line-height: 1.65;
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
 }
 
 .role-orbit {
@@ -840,8 +926,9 @@ select {
 
 .role-core span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--type-caption);
   font-weight: 400;
+  line-height: var(--leading-caption);
 }
 
 .role-chip {
@@ -855,8 +942,9 @@ select {
   border: 1px solid rgba(16, 103, 216, 0.18);
   border-radius: 999px;
   box-shadow: 0 14px 30px rgba(6, 26, 64, 0.1);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--type-body);
+  font-weight: 600;
+  line-height: var(--leading-body);
   text-align: center;
   transform:
     translate(-50%, -50%)
@@ -911,22 +999,24 @@ select {
   color: var(--blue-800);
   background: rgba(33, 136, 255, 0.09);
   border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .module-card__head small {
   color: rgba(15, 20, 25, 0.28);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
+  font-size: var(--type-h2);
+  font-weight: 600;
+  line-height: var(--leading-h2);
 }
 
 .module-card h3 {
   margin-top: 24px;
-  font-size: 24px;
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
 }
 
 .module-sublist {
@@ -945,8 +1035,9 @@ select {
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(18, 52, 88, 0.11);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: var(--type-body);
   font-weight: 500;
+  line-height: var(--leading-body);
 }
 
 .day {
@@ -979,17 +1070,18 @@ select {
 .day-metric strong {
   display: block;
   color: var(--ink);
-  font-size: 32px;
+  font-size: var(--type-h1);
   font-weight: 700;
-  line-height: 1;
+  line-height: var(--leading-h1);
 }
 
 .day-metric span {
   display: block;
   margin-top: 8px;
   color: var(--ink-soft);
-  font-size: 13px;
-  line-height: 1.35;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .timeline {
@@ -1047,8 +1139,9 @@ select {
   color: white;
   background: var(--blue-950);
   border-radius: 50%;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .timeline-row__body {
@@ -1069,8 +1162,9 @@ select {
   background: rgba(33, 136, 255, 0.09);
   border: 1px solid rgba(33, 136, 255, 0.12);
   border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .timeline-row__meta {
@@ -1086,7 +1180,9 @@ select {
   background: rgba(247, 251, 255, 0.9);
   border: 1px solid rgba(18, 52, 88, 0.08);
   border-radius: 8px;
-  font-size: 12px;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .india {
@@ -1110,7 +1206,9 @@ select {
 .signal b {
   display: block;
   color: var(--blue-950);
-  font-size: 20px;
+  font-size: var(--type-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
 }
 
 .demo {
@@ -1126,8 +1224,9 @@ select {
   display: grid;
   gap: 8px;
   color: var(--blue-950);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--type-caption);
+  font-weight: 500;
+  line-height: var(--leading-caption);
 }
 
 .demo-form input,
@@ -1167,8 +1266,9 @@ select {
   cursor: pointer;
   padding: 22px;
   color: var(--blue-950);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: var(--type-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
 }
 
 .faq-item p {
@@ -1294,7 +1394,8 @@ select {
   }
 
   .hero-title {
-    font-size: clamp(42px, 13vw, 62px);
+    font-size: var(--type-h1);
+    line-height: var(--leading-h1);
   }
 
   .device-stack {
@@ -1382,13 +1483,14 @@ select {
   }
 
   .brand {
-    font-size: 17px;
+    font-size: var(--type-h3);
+    line-height: var(--leading-h3);
   }
 
   .nav-cta {
     min-height: 40px;
     padding: 0 12px;
-    font-size: 13px;
+    font-size: var(--type-body);
   }
 
   .hero-actions .button {
@@ -1408,7 +1510,8 @@ select {
   }
 
   .dash-top h3 {
-    font-size: 22px;
+    font-size: var(--type-h3);
+    line-height: var(--leading-h3);
   }
 
   .metric-grid {
@@ -1421,7 +1524,8 @@ select {
   }
 
   .metric strong {
-    font-size: 22px;
+    font-size: var(--type-h1);
+    line-height: var(--leading-h1);
   }
 
   .activity-row {
