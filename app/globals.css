@@ -164,21 +164,21 @@ select {
   grid-template-columns: auto 1fr auto;
   gap: 28px;
   align-items: center;
-  max-width: calc(var(--max) + 40px);
-  margin: 0 auto;
-  padding: 18px 20px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 18px max(20px, calc((100vw - var(--max)) / 2 + 20px));
   backdrop-filter: blur(18px);
 }
 
 .site-nav::before {
   position: absolute;
-  inset: 8px 10px;
+  inset: 8px 0;
   z-index: -1;
   content: "";
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.76);
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(6, 26, 64, 0.08);
+  border-block: 1px solid rgba(255, 255, 255, 0.76);
+  box-shadow: 0 10px 30px rgba(6, 26, 64, 0.06);
 }
 
 .brand,
