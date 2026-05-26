@@ -112,6 +112,12 @@ const dayMetrics = [
   ["0", "duplicate registers"],
 ];
 
+const heroStats = [
+  ["8", "Core modules"],
+  ["5", "Role workspaces"],
+  ["100%", "Cloud hosted"],
+];
+
 const faqs = [
   {
     q: "Is SmartShala only for large schools?",
@@ -321,6 +327,13 @@ export default function Home() {
               <a className="button button--primary" href="#demo">Book a 20-min demo</a>
               <a className="button button--secondary" href="#roles">See every role</a>
             </div>
+            <div className="hero-login-card reveal is-visible">
+              <div>
+                <strong>School operations, ready before assembly.</strong>
+                <span>Login for principal and teacher teams. Parents receive WhatsApp updates only.</span>
+              </div>
+              <a href="#modules">View modules</a>
+            </div>
             <div className="hero-points reveal is-visible">
               <span>Works on any phone</span>
               <span>Role-based access</span>
@@ -328,7 +341,24 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual reveal is-visible">
-            <DashboardMock />
+            <div className="hero-product-shell">
+              <div className="hero-product-shell__top">
+                <span>SmartShala workspace</span>
+                <div>
+                  <i />
+                  <b>Live preview</b>
+                </div>
+              </div>
+              <DashboardMock />
+              <div className="hero-stat-row">
+                {heroStats.map(([value, label]) => (
+                  <div className="hero-stat" key={label}>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
