@@ -3,11 +3,36 @@
 import { useEffect } from "react";
 
 const roles = [
-  "Principal",
-  "Teachers",
-  "Accountants",
-  "Parents",
-  "Students",
+  {
+    name: "Principal",
+    label: "Leadership",
+    body: "School-wide dashboard, reports, analytics and exceptions in one calm view.",
+    access: ["Dashboard", "Reports", "Analytics"],
+  },
+  {
+    name: "Teachers",
+    label: "Academics",
+    body: "Classes, attendance and homework screens built for fast daily classroom work.",
+    access: ["Classes", "Attendance", "Homework"],
+  },
+  {
+    name: "Accountants",
+    label: "Accounts",
+    body: "Fee activity and account-ready records without searching across registers.",
+    access: ["Fees", "Reports"],
+  },
+  {
+    name: "Parents",
+    label: "Updates",
+    body: "Receive the right communication without needing access to internal screens.",
+    access: ["WhatsApp updates"],
+  },
+  {
+    name: "Students",
+    label: "Records",
+    body: "Student context stays organized across class, attendance, fees and homework.",
+    access: ["Student profile", "Academic context"],
+  },
 ];
 
 const modules = [
@@ -417,21 +442,38 @@ export default function Home() {
               the data connected for the school.
             </p>
           </div>
-          <div className="role-orbit reveal" aria-label="SmartShala roles">
-            <div className="role-core">
+          <div className="role-workspace reveal" aria-label="SmartShala roles">
+            <div className="role-workspace__header">
+              <div>
+                <span>Role access</span>
+                <strong>Connected, not cluttered.</strong>
+              </div>
               <Logo />
-              <b>SmartShala</b>
-              <span>Operating layer</span>
             </div>
-            {roles.map((role, index) => (
-              <span
-                className="role-chip"
-                style={{ "--i": index, "--total": roles.length } as React.CSSProperties}
-                key={role}
-              >
-                {role}
-              </span>
-            ))}
+            <div className="role-card-grid">
+              {roles.map((role) => (
+                <article className="role-card" key={role.name}>
+                  <div className="role-card__top">
+                    <span>{role.label}</span>
+                    <b>{role.name.slice(0, 2)}</b>
+                  </div>
+                  <h3>{role.name}</h3>
+                  <p>{role.body}</p>
+                  <div className="role-card__access">
+                    {role.access.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="role-access-panel">
+              <div>
+                <strong>Permission-aware by design</strong>
+                <span>Each role sees the work they own. Leadership still gets the full operating picture.</span>
+              </div>
+              <a href="#demo">Discuss access</a>
+            </div>
           </div>
         </section>
 
