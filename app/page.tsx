@@ -12,34 +12,46 @@ const roles = [
 
 const modules = [
   {
-    title: "Admissions CRM",
-    body: "Track every enquiry, visit, document and follow-up from the first call to confirmed admission.",
-    tag: "Front office",
+    title: "Dashboard",
+    body: "A clean opening view for school operations, daily movement, exceptions and quick actions.",
+    tag: "Home",
   },
   {
-    title: "Fees and receipts",
-    body: "Collect payments, issue receipts, send WhatsApp confirmations and see pending dues instantly.",
-    tag: "Accounts",
+    title: "Student",
+    body: "Keep student records, class details and academic context organized for everyday access.",
+    tag: "Records",
   },
   {
-    title: "Attendance",
-    body: "Teachers mark class attendance once. Parents, dashboards and reports update automatically.",
+    title: "Teacher",
+    body: "Everything teachers need for daily academic work, grouped into focused screens.",
     tag: "Academics",
+    items: ["Teacher", "Classes", "Attendance", "Homework"],
   },
   {
-    title: "Staff and payroll",
-    body: "Capture staff presence, approvals, leave and salary inputs without month-end register chasing.",
-    tag: "Administration",
-  },
-  {
-    title: "Transport",
-    body: "Route-wise student lists, driver updates and live communication for every bus operation.",
-    tag: "Operations",
+    title: "Communication",
+    body: "Send school updates and keep parent communication flowing without manual follow-up.",
+    tag: "Updates",
   },
   {
     title: "Reports",
-    body: "Daily school health, collections, attendance, enquiries and exceptions in one leadership view.",
-    tag: "Leadership",
+    body: "Turn everyday activity into clear reports for leadership, teachers and accounts.",
+    tag: "Insights",
+  },
+  {
+    title: "Fees",
+    body: "Manage fee activity, collection visibility and account-ready payment records.",
+    tag: "Accounts",
+  },
+  {
+    title: "Analytics",
+    body: "See patterns across attendance, fees, classes and communication from one place.",
+    tag: "Trends",
+  },
+  {
+    title: "Logs",
+    body: "Track important communication and system activity with a clear audit trail.",
+    tag: "Audit",
+    items: ["Message logs", "Activity Logs"],
   },
 ];
 
@@ -47,7 +59,7 @@ const day = [
   {
     time: "07:35",
     title: "Gate opens",
-    body: "Transport arrivals, staff punches and student movement begin flowing into the operations view.",
+    body: "Student arrivals, staff movement and first classroom updates begin flowing into the operations view.",
   },
   {
     time: "08:42",
@@ -268,8 +280,8 @@ export default function Home() {
               A calmer way to run your entire school.
             </h1>
             <p className="hero-sub reveal is-visible">
-              SmartShala connects admissions, fees, attendance, staff, transport,
-              WhatsApp updates and leadership reports in one role-aware system.
+              SmartShala connects dashboard insights, students, teachers, fees,
+              communication, analytics and reports in one role-aware system.
             </p>
             <div className="hero-actions reveal is-visible">
               <a className="button button--primary" href="#demo">Book a 20-min demo</a>
@@ -288,7 +300,7 @@ export default function Home() {
 
         <section className="proof-band">
           <div className="proof-item reveal">
-            <strong data-count="12">12+</strong>
+            <strong>8</strong>
             <span>Core modules</span>
           </div>
           <div className="proof-item reveal">
@@ -362,14 +374,31 @@ export default function Home() {
         <section className="modules section" id="modules">
           <div className="section-copy reveal">
             <span className="section-kicker">Modules</span>
-            <h2>Daily operations with less friction.</h2>
+            <h2>Built around the screens your team uses daily.</h2>
+            <p>
+              The landing page now reflects the SmartShala menu: simple top-level
+              modules with deeper teacher and log workflows where the work needs it.
+            </p>
           </div>
           <div className="module-grid">
-            {modules.map((module) => (
-              <article className="module-card reveal" key={module.title}>
-                <span>{module.tag}</span>
+            {modules.map((module, index) => (
+              <article
+                className={`module-card reveal ${module.items ? "module-card--nested" : ""}`}
+                key={module.title}
+              >
+                <div className="module-card__head">
+                  <span>{module.tag}</span>
+                  <small>{String(index + 1).padStart(2, "0")}</small>
+                </div>
                 <h3>{module.title}</h3>
                 <p>{module.body}</p>
+                {module.items ? (
+                  <ul className="module-sublist" aria-label={`${module.title} screens`}>
+                    {module.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </article>
             ))}
           </div>
@@ -403,8 +432,8 @@ export default function Home() {
             <h2>Fast enough for the office desk. Simple enough for the phone.</h2>
             <p>
               SmartShala respects how schools actually run: mixed devices,
-              WhatsApp-first communication, fee counters, transport routes,
-              parent urgency and leadership that needs clarity by the end of day.
+              WhatsApp-first communication, fee counters, parent urgency and
+              leadership that needs clarity by the end of day.
             </p>
           </div>
           <div className="signal-grid">
