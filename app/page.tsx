@@ -6,9 +6,6 @@ const roles = [
   "Principal",
   "Teachers",
   "Accountants",
-  "Reception",
-  "HR",
-  "Transport",
   "Parents",
   "Students",
 ];
@@ -32,7 +29,7 @@ const modules = [
   {
     title: "Staff and payroll",
     body: "Capture staff presence, approvals, leave and salary inputs without month-end register chasing.",
-    tag: "HR",
+    tag: "Administration",
   },
   {
     title: "Transport",
@@ -76,7 +73,7 @@ const faqs = [
   },
   {
     q: "Can each role see only their own work?",
-    a: "Yes. Principals, teachers, accounts, HR, reception and transport teams get role-specific screens and permissions.",
+    a: "Yes. Principals, teachers, accountants, parents and students get role-specific screens and permissions.",
   },
   {
     q: "Does it work on mobile?",
@@ -295,7 +292,7 @@ export default function Home() {
             <span>Core modules</span>
           </div>
           <div className="proof-item reveal">
-            <strong>8</strong>
+            <strong>5</strong>
             <span>School roles</span>
           </div>
           <div className="proof-item reveal">
@@ -320,7 +317,7 @@ export default function Home() {
           </div>
           <div className="principles">
             {[
-              ["01", "Capture at the source", "Teachers, accountants, reception and HR record work in the screen built for their job."],
+              ["01", "Capture at the source", "Teachers, accountants and school leaders record work in the screen built for their job."],
               ["02", "Connect across roles", "One attendance mark can inform a parent, update a dashboard and feed a monthly report."],
               ["03", "Compound quietly", "Daily operations become clean reports without late-night spreadsheet work."],
             ].map(([number, title, body]) => (
@@ -351,7 +348,11 @@ export default function Home() {
               <span>Operating layer</span>
             </div>
             {roles.map((role, index) => (
-              <span className="role-chip" style={{ "--i": index } as React.CSSProperties} key={role}>
+              <span
+                className="role-chip"
+                style={{ "--i": index, "--total": roles.length } as React.CSSProperties}
+                key={role}
+              >
                 {role}
               </span>
             ))}
