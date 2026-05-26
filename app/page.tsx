@@ -57,25 +57,59 @@ const modules = [
 
 const day = [
   {
-    time: "07:35",
-    title: "Gate opens",
-    body: "Student arrivals, staff movement and first classroom updates begin flowing into the operations view.",
+    time: "07:45",
+    module: "Dashboard",
+    title: "Leadership starts with a live picture",
+    body: "The dashboard opens with student activity, fee movement, attendance readiness and the items that need attention today.",
+    owner: "Principal view",
+    system: "Live overview",
   },
   {
-    time: "08:42",
-    title: "Classes settle",
-    body: "Teachers mark attendance on phone. Absentees are ready for parent communication.",
+    time: "08:35",
+    module: "Teacher",
+    title: "Attendance is captured inside class",
+    body: "Teachers mark attendance once from the teacher workspace. Class status updates immediately for school leadership.",
+    owner: "Teacher app",
+    system: "Attendance",
   },
   {
-    time: "11:20",
-    title: "Fees collected",
-    body: "Accounts posts receipts. Parent confirmations and principal collection summaries update together.",
+    time: "10:50",
+    module: "Classes",
+    title: "Classwork and homework stay connected",
+    body: "Class updates and homework move from teacher work to student context, keeping academic activity organized by class.",
+    owner: "Teacher workspace",
+    system: "Homework",
   },
   {
-    time: "14:10",
-    title: "Office closes loops",
-    body: "Pending enquiries, certificates, leave approvals and reminders are visible before the day ends.",
+    time: "12:20",
+    module: "Fees",
+    title: "Fee activity becomes account-ready",
+    body: "Fee entries are recorded with clean visibility, so collections and pending amounts are easier to review.",
+    owner: "Accounts desk",
+    system: "Fees",
   },
+  {
+    time: "13:40",
+    module: "Communication",
+    title: "Parents get the right updates",
+    body: "Important school messages and parent-facing updates are sent from one controlled communication flow.",
+    owner: "School office",
+    system: "Message logs",
+  },
+  {
+    time: "15:10",
+    module: "Reports",
+    title: "The day closes into reports",
+    body: "Reports, analytics and activity logs turn the school day into a clear record for review and follow-up.",
+    owner: "Admin review",
+    system: "Analytics + Logs",
+  },
+];
+
+const dayMetrics = [
+  ["8", "modules in flow"],
+  ["1", "daily operating record"],
+  ["0", "duplicate registers"],
 ];
 
 const faqs = [
@@ -407,19 +441,35 @@ export default function Home() {
         <section className="day section" id="day">
           <div className="section-copy reveal">
             <span className="section-kicker">A day at school</span>
-            <h2>From morning gate to closing reports.</h2>
+            <h2>School operations, ready before assembly.</h2>
             <p>
-              The value appears in small, repeated moments: fewer calls, fewer
-              registers, fewer missed updates.
+              SmartShala follows the real school day: dashboard first, class
+              work next, fee activity through the office, communication to
+              parents, and a clean record by closing time.
             </p>
+            <div className="day-metrics">
+              {dayMetrics.map(([value, label]) => (
+                <div className="day-metric" key={label}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="timeline">
             {day.map((event) => (
               <article className="timeline-row reveal" key={event.time}>
                 <time>{event.time}</time>
-                <div>
-                  <h3>{event.title}</h3>
+                <div className="timeline-row__body">
+                  <div className="timeline-row__top">
+                    <h3>{event.title}</h3>
+                    <span>{event.module}</span>
+                  </div>
                   <p>{event.body}</p>
+                  <div className="timeline-row__meta">
+                    <span>{event.owner}</span>
+                    <span>{event.system}</span>
+                  </div>
                 </div>
               </article>
             ))}
